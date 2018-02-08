@@ -121,4 +121,15 @@ def find_typo_in_text(text):
             typo_found.append(word )
             yield "{}: {} -> {}".format(m.rule.issueType, word, m.replacements[:1])
 
+def find_duplication_in_text(text):
+    result = check_text(text)
+    matched = result.get("matches")
+    matches = [iterate_model(m) for m in matched]
+    for m in matches:
+        word = m.context.text
+        if m.rule.issueType == "duplication":
+            typo_found.append(word)
+            yield "{}: {}".format(m.rule.issueType, word)
+
+
 
