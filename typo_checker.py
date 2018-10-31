@@ -108,8 +108,6 @@ def load_white_word_list():
 
 
 
-
-
 typo_found = []
 def find_typo_in_text(text):
     result = check_text(text)
@@ -130,6 +128,4 @@ def find_duplication_in_text(text):
         if m.rule.issueType == "duplication":
             typo_found.append(word)
             yield "{}: {}".format(m.rule.issueType, word)
-
-
 
